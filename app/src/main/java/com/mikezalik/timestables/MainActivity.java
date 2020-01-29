@@ -32,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
         final SeekBar timesTablesSeekBar = findViewById(R.id.timesTablesSeekBar);
         timesTablesListView = findViewById(R.id.timesTablesListView);
 
-        timesTablesSeekBar.setMax(20);
-        timesTablesSeekBar.setProgress(10);
+        int max = 20;
+        int startingPosition = 10;
+
+        timesTablesSeekBar.setMax(max);
+        timesTablesSeekBar.setProgress(startingPosition);
+
+        generateTimesTable(startingPosition);
 
         timesTablesSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
