@@ -3,8 +3,11 @@ package com.mikezalik.timestables;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final SeekBar timesTablesSeekBar = findViewById(R.id.timesTablesSeekBar);
-        ListView timesTablesListView = findViewById(R.id.timesTablesListView);
+        final ListView timesTablesListView = findViewById(R.id.timesTablesListView);
 
         timesTablesSeekBar.setMax(20);
         timesTablesSeekBar.setProgress(10);
@@ -31,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     timesTableNumber = i;
                 }
+
+                ArrayList<String> timesTableContent = new ArrayList<String>();
+
+                for (int j = 1; j <= 10; j++) {
+                    timesTableContent.add(Integer.toString(j * timesTableNumber));
+                }
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timesTableContent);
+                timesTablesListView.setAdapter(arrayAdapter);
             }
 
             @Override
