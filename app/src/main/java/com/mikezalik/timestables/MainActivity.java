@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SeekBar timesTablesSeekBar = findViewById(R.id.timesTablesSeekBar);
+        final SeekBar timesTablesSeekBar = findViewById(R.id.timesTablesSeekBar);
         ListView timesTablesListView = findViewById(R.id.timesTablesListView);
 
         timesTablesSeekBar.setMax(20);
@@ -21,8 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
         timesTablesSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 int min = 1;
+                int timesTableNumber;
+
+                if (i < min){
+                    timesTableNumber = min;
+                    timesTablesSeekBar.setProgress(min);
+                } else {
+                    timesTableNumber = i;
+                }
             }
 
             @Override
