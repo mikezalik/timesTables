@@ -11,6 +11,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public void generateTimesTable(int timesTableNumber) {
+        ArrayList<String> timesTableContent = new ArrayList<String>();
+
+        for (int j = 1; j <= 10; j++) {
+            timesTableContent.add(Integer.toString(j * timesTableNumber));
+        }
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timesTableContent);
+        timesTablesListView.setAdapter(arrayAdapter);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     timesTableNumber = i;
                 }
 
-                ArrayList<String> timesTableContent = new ArrayList<String>();
-
-                for (int j = 1; j <= 10; j++) {
-                    timesTableContent.add(Integer.toString(j * timesTableNumber));
-                }
-
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timesTableContent);
-                timesTablesListView.setAdapter(arrayAdapter);
+                generateTimesTable(timesTableNumber);
             }
 
             @Override
