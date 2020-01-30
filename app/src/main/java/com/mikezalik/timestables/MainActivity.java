@@ -52,18 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     timesTableNumber = i;
                 }
-
                 generateTimesTable(timesTableNumber);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
     }
