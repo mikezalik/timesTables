@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     public void generateTimesTable(int timesTableNumber) {
         ArrayList<String> timesTableContent = new ArrayList<String>();
 
-        for (int j = 1; j <= 10; j++) {
+        for (int j = 1; j <= 1000; j++) {
             timesTableContent.add(Integer.toString(j * timesTableNumber));
         }
 
